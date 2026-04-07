@@ -10,7 +10,7 @@ function AddExpenseForm({ token, reloadAnalytics, refreshTable }) {
   const addExpense = async () => {
 
     const res = await axios.post(
-      "http://localhost:5000/api/add-expense",
+      "https://smart-expense-classifier-backend.onrender.com/api/add-expense",
       { description, amount },
       { headers: { Authorization: token } }
     )

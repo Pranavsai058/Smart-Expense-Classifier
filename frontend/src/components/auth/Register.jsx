@@ -10,7 +10,7 @@ function Register({ setPage }) {
   const register = async () => {
 
     await axios.post(
-      "http://localhost:5000/auth/register",
+      "https://smart-expense-classifier-backend.onrender.com/auth/register",
       { name,email,password }
     )
 

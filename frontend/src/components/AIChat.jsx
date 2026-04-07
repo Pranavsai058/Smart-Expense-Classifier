@@ -20,7 +20,7 @@ function AIChat({ token }) {
     try {
 
       const res = await axios.post(
-        "http://localhost:5000/ai/ask",
+        "https://smart-expense-classifier-backend.onrender.com/ai/ask",
         { question },
         { headers: { Authorization: token } }
       )

@@ -16,7 +16,7 @@ function Dashboard({ token, setToken }) {
         try {
 
             const res = await axios.get(
-                "http://localhost:5000/analytics/prediction"
+                "https://smart-expense-classifier-backend.onrender.com/analytics/prediction"
             )
 
             setPrediction(res.data.predicted_spending)
@@ -31,7 +31,7 @@ function Dashboard({ token, setToken }) {
         try {
 
             const res = await axios.get(
-                "http://localhost:5000/analytics/category-summary",
+                "https://smart-expense-classifier-backend.onrender.com/analytics/category-summary",
                 {
                     headers: {
                         Authorization: token
@@ -72,7 +72,7 @@ function Dashboard({ token, setToken }) {
         try {
 
             const res = await axios.get(
-                "http://localhost:5000/reports/download",
+                "https://smart-expense-classifier-backend.onrender.com/reports/download",
                 {
                     headers: {
                         Authorization: token

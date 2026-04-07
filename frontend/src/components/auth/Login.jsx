@@ -9,7 +9,7 @@ function Login({ setToken,setPage }) {
   const login = async () => {
 
     const res = await axios.post(
-      "http://localhost:5000/auth/login",
+      "https://smart-expense-classifier-backend.onrender.com/auth/login",
       { email,password }
     )
 
