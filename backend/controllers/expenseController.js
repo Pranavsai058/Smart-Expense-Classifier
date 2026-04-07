@@ -7,13 +7,13 @@ exports.addExpense = async (req, res) => {
 
         const { description, amount } = req.body
 
-        const categoryResponse = await axios.post("http://127.0.0.1:8000/predict-category", {
+        const categoryResponse = await axios.post("https://smart-expense-classifier-ml.onrender.com/predict-category", {
             text: description
         })
 
         const category = categoryResponse.data.category
 
-        const anomalyResponse = await axios.post("http://127.0.0.1:8000/detect-anomaly", {
+        const anomalyResponse = await axios.post("https://smart-expense-classifier-ml.onrender.com/detect-anomaly", {
             amount: Number(amount)
         })
 

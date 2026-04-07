@@ -39,7 +39,7 @@ exports.predictSpending = async (req,res)=>{
     try{
 
         const response = await axios.get(
-            "http://127.0.0.1:8000/predict-spending?month=13"
+            "https://smart-expense-classifier-ml.onrender.com/predict-spending?month=13"
         )
 
         res.json(response.data)

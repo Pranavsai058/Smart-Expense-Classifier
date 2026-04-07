@@ -4,7 +4,7 @@ const mongoose = require("mongoose")
 exports.askAI = async (req, res) => {
 
     try {
-        const ML_API = "http://127.0.0.1:8000";
+        const ML_API = "https://smart-expense-classifier-ml.onrender.com";
         const { question } = req.body
 
         const userId = req.userId
