@@ -3,7 +3,7 @@ import joblib
 from rag_service import router as rag_router
 
 app = FastAPI()
-app.include_router(rag_router, prefix="/rag")
+# app.include_router(rag_router, prefix="/rag")
 classifier = joblib.load("expense_classifier.pkl")
 vectorizer = joblib.load("vectorizer.pkl")
 spending_model = joblib.load("spending_model.pkl")
