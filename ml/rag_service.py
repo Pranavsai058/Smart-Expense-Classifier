@@ -4,17 +4,10 @@ import numpy as np
 
 router = APIRouter()
 
-model = None
+model = SentenceTransformer("all-MiniLM-L6-v2")
 
-def get_model():
-    global model
-    if model is None:
-        from sentence_transformers import SentenceTransformer
-        model = SentenceTransformer("all-MiniLM-L6-v2")
-    return model
-
-user_documents[user_id] = get_model().encode(docs)
-user_vectors[user_id] = get_model().encode(docs)
+user_documents = {}
+user_vectors = {}
 
 
 @router.post("/load-expenses")

@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Query
 import joblib
-from rag_service import router as rag_router
+# from rag_service import router as rag_router
 
 app = FastAPI()
 # app.include_router(rag_router, prefix="/rag")
