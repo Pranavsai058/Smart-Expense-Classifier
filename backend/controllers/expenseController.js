@@ -14,7 +14,7 @@ exports.addExpense = async (req, res) => {
         const category = categoryResponse.data.category
 
         const anomalyResponse = await axios.post("http://127.0.0.1:8000/detect-anomaly", {
-            amount: amount
+            amount: Number(amount)
         })
 
         const anomaly = anomalyResponse.data.anomaly

@@ -4,21 +4,21 @@ const mongoose = require("mongoose")
 exports.askAI = async (req, res) => {
 
     try {
-
+        const ML_API = "http://127.0.0.1:8000";
         const { question } = req.body
 
         const userId = req.userId
 
         const summary = await Expense.aggregate([
-            
-                 {
-                    $match: {
-                        userId: new mongoose.Types.ObjectId(req.userId)
-                    }
-                },
-            
-                
-              {
+
+            {
+                $match: {
+                    userId: new mongoose.Types.ObjectId(req.userId)
+                }
+            },
+
+
+            {
                 $group: {
                     _id: "$category",
                     total: { $sum: "$amount" },
@@ -32,13 +32,13 @@ exports.askAI = async (req, res) => {
         )
 
         await axios.post(
-            "http://127.0.0.1:9000/load-expenses",
-            {userId: req.userId, documents }
+            `${ML_API}/rag/load-expenses`,
+            { userId: req.userId, documents }
         )
 
         const response = await axios.post(
-            "http://127.0.0.1:9000/ask",
-            {userId: req.userId, question }
+            `${ML_API}/rag/ask`,
+            { userId: req.userId, question }
         )
 
         res.json(response.data)
